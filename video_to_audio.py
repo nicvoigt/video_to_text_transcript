@@ -29,13 +29,13 @@ class VidToAud:
 
                 max_dur = 150
 
-                transcribed_audio_file_name = os.path.join(paths.output_dir, f"barbara_medico{date_time}_part.wav")
+                transcribed_audio_file_name = os.path.join(paths.pre_output_dir, f"barbara_medico{date_time}_part.wav")
 
                 if audio_len > max_dur:
                     no_files = math.ceil(audio_len / max_dur)
                     for file_no in range(len(no_files)):
                         clip = audioclip.subclip(max_dur * file_no, max_dur * (file_no + 1))
-                        transcribed_audio_file_name = os.path.join(paths.output_dir,f"barbara_medico{date_time}_part{file_no}.wav")
+                        transcribed_audio_file_name = os.path.join(paths.pre_output_dir,f"barbara_medico{date_time}_part{file_no}.wav")
                         clip.write_audiofile(transcribed_audio_file_name, bitrate="50k", fps=8000)
                 else:
                     audioclip.write_audiofile(transcribed_audio_file_name, bitrate="50k", fps=8000)
