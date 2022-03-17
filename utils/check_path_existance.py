@@ -1,0 +1,1 @@
+from video_to_text_transcript.utils import paths
